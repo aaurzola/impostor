@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faMinus, faMinusSquare, faPlus, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faMinusSquare, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { decrementPlayers, incrementPlayers } from 'src/app/state/players/players.actions';

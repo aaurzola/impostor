@@ -22,7 +22,7 @@ export function localStorageSyncReducer(
 const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 
 @NgModule({
-  declarations: [AppComponent, WordContainerComponent, PlayersNumberComponent, StartComponent, GameComponent, EndComponent],
+  declarations: [AppComponent, PlayersNumberComponent, StartComponent, GameComponent, EndComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
