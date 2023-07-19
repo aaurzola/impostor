@@ -1,6 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
-
 body {
   background-color: #232829;
   color: white;
+  padding: 0;
+  margin: 0;
+  height: 100dvh;
 }
+
+.app-btn {
+  width: 340px;
+  height: 114px;
+  flex-shrink: 0;
+
+  border-radius: 63px;
+  box-shadow: 8px 7px 10px 0px rgba(0, 0, 0, 0.25);
+  font-size: 32px;
+  color: white;
+  border-style: none;
+  font-weight: bold;
+}
+
+.primary {
+  background: #DB5132;
+}
+
+.secondary {
+background-color: #5D4060;
+}
+
+.app-rounded-btn {
+  width: 114px;
+  height: 114px;
+  flex-shrink: 0;
+  color: white;
+  border-radius: 63px;
+  box-shadow: 8px 7px 10px 0px rgba(0, 0, 0, 0.25);
+  border-style: none;
+  font-size: 50px;
+}
+

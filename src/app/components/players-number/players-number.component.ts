@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faMinus, faMinusSquare, faPlus, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { decrementPlayers, incrementPlayers } from 'src/app/state/players/players.actions';
@@ -9,6 +10,9 @@ import { decrementPlayers, incrementPlayers } from 'src/app/state/players/player
   styleUrls: ['./players-number.component.scss']
 })
 export class PlayersNumberComponent implements OnInit {
+
+  faPlus = faPlusSquare;
+  faMinus = faMinusSquare;
 
   playerCount$: Observable<number>;
 

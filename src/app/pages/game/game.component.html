@@ -1,0 +1,35 @@
+<main>
+  <div class="title">
+    <h1>{{ currentPlayer}}/{{playerCount$ | async }}</h1>
+  </div>
+  <h1
+    class="word-container"
+    *ngIf="!hideWord; else elseBlock">
+    {{ wordList[currentPlayer-1] }}
+  </h1>
+  <ng-template #elseBlock>
+    <h1 class="word-container">-</h1>
+  </ng-template>
+  <div class="control-container">
+    <button
+      class="app-rounded-btn secondary"
+      (pointerdown)="visibilityOn()"
+      (pointerup)="visibilityOff()"
+      (pointerleave)="visibilityOff()">
+      <fa-icon [icon]="viewIcon"></fa-icon>
+    </button>
+    <button
+      class="app-rounded-btn primary"
+      *ngIf="currentPlayer != players"
+      (click)="nextPlayer()">
+      <fa-icon [icon]="nextIcon"></fa-icon>
+    </button>
+    <button
+      routerLink="/end"
+      class="app-rounded-btn primary"
+      *ngIf="currentPlayer == players"
+      (click)="endRound()">
+      <fa-icon [icon]="stopIcon"></fa-icon>
+    </button>
+  </div>
+</main>

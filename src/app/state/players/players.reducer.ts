@@ -14,6 +14,6 @@ export const playersReducer = createReducer(
   on(incrementPlayers, (state) => ({ ...state, count: state.count + 1 })),
   on(decrementPlayers, (state) => ({
     ...state,
-    count: Math.max(0, state.count - 1),
+    count: Math.max(3, state.count - 1),
   }))
 );

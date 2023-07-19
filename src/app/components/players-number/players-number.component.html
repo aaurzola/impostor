@@ -1,3 +1,9 @@
-<button (click)="decrementPlayers()">(reducir)</button>
-<span>{{ playerCount$ | async}}</span>
-<button (click)="incrementPlayers()">(aumentar)</button>
+<div id="container">
+  <button (click)="decrementPlayers()">
+    <fa-icon [icon]="faMinus"></fa-icon>
+  </button>
+  <span class="player-count">{{ playerCount$ | async}}</span>
+  <button (click)="incrementPlayers()">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </button>
+</div>

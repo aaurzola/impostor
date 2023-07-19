@@ -1,0 +1,19 @@
+#container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button {
+  border-style: none;
+  font-size: 60px;
+  color: white;
+  background: none;
+}
+
+.player-count {
+  font-size: 128px;
+  width: 200px;
+  text-align: center;
+}
