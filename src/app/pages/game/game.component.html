@@ -20,14 +20,14 @@
     </button>
     <button
       class="app-rounded-btn primary"
-      *ngIf="currentPlayer != players"
+      *ngIf="currentPlayer !== players"
       (click)="nextPlayer()">
       <fa-icon [icon]="nextIcon"></fa-icon>
     </button>
     <button
       routerLink="/end"
       class="app-rounded-btn primary"
-      *ngIf="currentPlayer == players"
+      *ngIf="currentPlayer === players"
       (click)="endRound()">
       <fa-icon [icon]="stopIcon"></fa-icon>
     </button>
