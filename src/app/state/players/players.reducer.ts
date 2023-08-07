@@ -36,10 +36,25 @@ export const playersReducer = createReducer(
       players: state.players.slice(0, Math.max(3, state.players.length - 1))
     };
   }),
+
   on(playerScore.increment, (state, { playerId }) => {
     const updatedPlayers = state.players.map((player) => {
       if (player.id === playerId) {
         return { ...player, score: player.score + 1 };
+      }
+      return player;
+    });
+
+    return {
+      ...state,
+      players: updatedPlayers,
+    };
+  }),
+
+  on(playerScore.decrement, (state, { playerId }) => {
+    const updatedPlayers = state.players.map((player) => {
+      if (player.id === playerId) {
+        return { ...player, score: Math.max(0, player.score - 1) };
       }
       return player;
     });
