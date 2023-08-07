@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayersNumberComponent } from './components/players-number/players-number.component';
 import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
-import { playersReducer } from './state/players/players.reducer';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { StartComponent } from './pages/start/start.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';

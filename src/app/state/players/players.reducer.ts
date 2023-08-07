@@ -1,14 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
 import { decrementPlayers, incrementPlayers } from './players.actions';
 import { Player } from '@app/model/player';
+import { playerScore } from '../score/score.actions';
 
 export interface PlayersState {
-  count: number;
   players: Player[]
 }
 
 export const initialState: PlayersState = {
-  count: 3,
   players: [
     {id: 1, name: 'player 1', score: 0 },
     {id: 2, name: 'player 2', score: 0 },
@@ -29,17 +28,25 @@ export const playersReducer = createReducer(
 
     return {
     ...state,
-    count: state.count + 1,
     players: [...state.players, newPlayer]}}),
 
   on(decrementPlayers, (state) => {
-    const newCount = Math.max(3, state.count - 1);
-    const newPlayers = state.players.slice(0, newCount);
+    return {
+      ...state,
+      players: state.players.slice(0, Math.max(3, state.players.length - 1))
+    };
+  }),
+  on(playerScore.increment, (state, { playerId }) => {
+    const updatedPlayers = state.players.map((player) => {
+      if (player.id === playerId) {
+        return { ...player, score: player.score + 1 };
+      }
+      return player;
+    });
 
     return {
       ...state,
-      count: newCount,
-      players: newPlayers
+      players: updatedPlayers,
     };
   })
 );

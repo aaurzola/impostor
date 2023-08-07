@@ -2,6 +2,9 @@ import { Component, Input } from '@angular/core';
 import { faMinus, faPen, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Player } from '@app/model/player';
 import { Observable } from 'rxjs';
+import { AppState } from '@app/state/app.state';
+import { Store } from '@ngrx/store';
+import { playerScore } from '@app/state/score/score.actions';
 
 @Component({
   selector: 'app-player-list',
@@ -16,7 +19,14 @@ export class PlayerListComponent {
 
   @Input() playerList$: Observable<Player[]> = new Observable;
 
-  addScore(id: number): void {
+  constructor(private store: Store<AppState>) {}
 
+
+  addScore(playerId: number): void {
+    this.store.dispatch(playerScore.increment({playerId}));
+  }
+
+  decrementScore(playerId: number): void {
+    this.store.dispatch(playerScore.decrement({playerId}));
   }
 }
