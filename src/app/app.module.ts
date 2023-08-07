@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,10 @@ import { StartComponent } from './pages/start/start.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GameComponent } from './pages/game/game.component';
 import { EndComponent } from './pages/end/end.component';
+import { PlayerListComponent } from './components/player-list/player-list.component';
+import { ScoreComponent } from './pages/score/score.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ROOT_REDUCERS } from './state/app.state';
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
@@ -21,12 +25,13 @@ export function localStorageSyncReducer(
 const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 
 @NgModule({
-  declarations: [AppComponent, PlayersNumberComponent, StartComponent, GameComponent, EndComponent],
+  declarations: [AppComponent, PlayersNumberComponent, StartComponent, GameComponent, EndComponent, PlayerListComponent, ScoreComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ players: playersReducer }, { metaReducers }),
+    StoreModule.forRoot(ROOT_REDUCERS, { metaReducers }),
     FontAwesomeModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [],
   bootstrap: [AppComponent],

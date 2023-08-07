@@ -1,0 +1,30 @@
+<div
+  class="flex flex-row w-full flex-grow justify-between text-xl items-center bg-[#f2f2f205] p-5 rounded-3xl"
+  id="player info"
+  *ngFor="let player of playerList$ | async"
+  >
+  <div class="flex flex-row gap-4">
+    <button>
+      <fa-icon
+      class="text-[#de8e50]"
+      [icon]="editIcon">
+    </fa-icon>
+    </button>
+    <span>
+      {{player.name | titlecase}}
+    </span>
+  </div>
+  <div class="flex flex-row gap-4">
+    <button>
+      <fa-icon
+        class="text-[#b43c3c]"
+        [icon]="decrementScore"></fa-icon>
+    </button>
+    <div>{{player.score}}</div>
+    <button>
+      <fa-icon
+        class="text-[#3cb478]"
+        [icon]="addScore"></fa-icon>
+    </button>
+  </div>
+</div>
