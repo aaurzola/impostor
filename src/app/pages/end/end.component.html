@@ -1,4 +1,12 @@
-<div class="end-game-btn">
-  <button routerLink="/game" class="app-btn secondary">Nueva Ronda</button>
-  <button routerLink="/start" class="app-btn primary">Finalizar</button>
-</div>
+<main class="flex flex-col justify-center content-center">
+  <div>
+    <span class="text-xl">
+      Empieza el Jugador {{startingPlayer}}
+    </span>
+  </div>
+
+  <div class="flex flex-col justify-end h-full gap-5">
+    <button routerLink="/game" class="app-btn secondary">Nueva Ronda</button>
+    <button routerLink="/start" class="app-btn primary">Finalizar</button>
+  </div>
+</main>

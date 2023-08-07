@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { faDiagramNext, faEye, faForward, faStop } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faForward, faStop } from '@fortawesome/free-solid-svg-icons';
 import { Store, select } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 import { WordGeneratorService } from 'src/app/services/word-generator.service';
@@ -11,10 +11,10 @@ import { WordGeneratorService } from 'src/app/services/word-generator.service';
 })
 export class GameComponent implements OnInit, OnDestroy {
   playerCount$: Observable<number>;
-  currentPlayer: number = 1;
+  currentPlayer = 1;
   wordList: string[] = [];
   hideWord = true;
-  players: number = 0;
+  players = 0;
 
   viewIcon = faEye;
   nextIcon = faForward;
@@ -49,6 +49,4 @@ export class GameComponent implements OnInit, OnDestroy {
   visibilityOff(): void {
     this.hideWord = true;
   }
-
-  endRound(): void {}
 }
