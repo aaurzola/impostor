@@ -10,9 +10,13 @@ import { Observable } from 'rxjs';
 export class PlayerListComponent {
 
   //icons
-  addScore = faPlus;
-  decrementScore = faMinus;
+  addIcon = faPlus;
+  minusIcon = faMinus;
   editIcon = faPen
 
   @Input() playerList$: Observable<Player[]> = new Observable;
+
+  addScore(id: number): void {
+
+  }
 }
