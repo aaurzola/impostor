@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, map } from 'rxjs';
-import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { AppState } from '@app/state/app.state';
 import { selectPlayerList } from '@app/state/players/players.selector';
 import { Player } from '@app/model/player';
+import { endGame } from '@app/state/game/game.actions';
 
 @Component({
   selector: 'app-end',
@@ -24,6 +25,10 @@ export class EndComponent implements OnInit{
         this.startingPlayer = Math.ceil(Math.random() * playerList.length);
       }
     );
+  }
+
+  endGame() {
+    this.store.dispatch(endGame());
   }
 
 }

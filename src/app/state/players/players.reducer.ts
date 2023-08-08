@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { decrementPlayers, startEditingName, incrementPlayers, editName, stopEditingName } from './players.actions';
 import { Player } from '@app/model/player';
 import { playerScore } from '../score/score.actions';
+import { endGame } from '../game/game.actions';
 
 export interface PlayersState {
   players: Player[]
@@ -85,8 +86,18 @@ export const playersReducer = createReducer(
       ...state,
       players: updatedPlayers,
     }
-  })
-);
+  }),
+
+  on(endGame, (state) => {
+    const updatedPlayers = state.players.map((player) => {
+      return {...player, score: 0};
+    })
+
+    return {
+      ...state,
+      players: updatedPlayers
+    }
+  }));
 
 export const playerEditReducer = createReducer(
   initialPlayerEditState,
