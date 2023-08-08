@@ -14,6 +14,7 @@ import { PlayerListComponent } from './components/player-list/player-list.compon
 import { ScoreComponent } from './pages/score/score.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './state/app.state';
+import { FormsModule } from '@angular/forms';
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
@@ -26,6 +27,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 @NgModule({
   declarations: [AppComponent, PlayersNumberComponent, StartComponent, GameComponent, EndComponent, PlayerListComponent, ScoreComponent],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(ROOT_REDUCERS, { metaReducers }),

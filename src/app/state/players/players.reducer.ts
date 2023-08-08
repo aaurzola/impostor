@@ -1,10 +1,14 @@
 import { createReducer, on } from '@ngrx/store';
-import { decrementPlayers, incrementPlayers } from './players.actions';
+import { decrementPlayers, startEditingName, incrementPlayers, editName, stopEditingName } from './players.actions';
 import { Player } from '@app/model/player';
 import { playerScore } from '../score/score.actions';
 
 export interface PlayersState {
   players: Player[]
+}
+
+export interface PlayerEditState {
+  playerId: number | null
 }
 
 export const initialState: PlayersState = {
@@ -14,6 +18,10 @@ export const initialState: PlayersState = {
     {id: 3, name: 'player 3', score: 0 },
   ]
 };
+
+export const initialPlayerEditState: PlayerEditState = {
+  playerId: null
+}
 
 export const playersReducer = createReducer(
   initialState,
@@ -63,5 +71,26 @@ export const playersReducer = createReducer(
       ...state,
       players: updatedPlayers,
     };
+  }),
+
+  on(editName, (state, action) => {
+    const updatedPlayers = state.players.map((player) => {
+      if (player.id === action.playerId) {
+        return {...player, name: action.newName}
+      }
+      return player;
+    });
+
+    return {
+      ...state,
+      players: updatedPlayers,
+    }
   })
 );
+
+export const playerEditReducer = createReducer(
+  initialPlayerEditState,
+  on(startEditingName, (state, action) => ({...state, playerId: action.playerId})),
+  on(stopEditingName, (state) => ({...state, playerId: null}))
+);
+
