@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class ScoreComponent implements OnInit{
 
-  playerList$: Observable<Player[]> = new Observable;
+  playerList$: Observable<Player[]> = new Observable();
 
   constructor(
     private store: Store<AppState>,

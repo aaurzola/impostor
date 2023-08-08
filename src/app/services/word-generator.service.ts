@@ -19,15 +19,12 @@ export class WordGeneratorService {
     array.splice(randomIndex, 1, "Impostor");
   }
 
-  getWordListForRound(players: Observable<number>): string[] {
+  getWordListForRound(numberOfPlayers: number): string[] {
     this.getWord();
     const wordList: string [] = [];
-
-    players.subscribe((numberOfPlayers: number) => {
-      for (let i = 0; i < numberOfPlayers; i++) {
-        wordList.push(this.displayedWord);
-      }
-    });
+    for (let i = 0; i < numberOfPlayers; i++) {
+      wordList.push(this.displayedWord);
+    }
 
     this.placeImpostorInto(wordList);
     return wordList;
