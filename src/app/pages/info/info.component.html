@@ -1,0 +1,35 @@
+<div class="flex flex-col h-[100dvh] items-center content-center justify-end p-6 gap-4">
+  <div class="flex flex-col items-center text-justify overflow-y-scroll h-full rounded p-4 text-[#8b8b8b]">
+    <h3 class="text-2xl text-white font-bold text-center">¿Cómo jugar?</h3>
+    <p>
+      Una persona del grupo deberá tener la aplicación abierta en un navegador web en su dispositivo. Para empezar a jugar, se debe ingresar la cantidad de jugadores que participarán (todos los integrantes del grupo pueden participar). Por turnos, cada jugador tomará el dispositivo para mirar (secretamente) la palabra que la aplicación ha asignado; luego de mirar la palabra el jugador debe presionar el boton de 'pasar a siguiente jugador' y pasar el dispositivo al próximo jugador, el cual mirará la palabra y pasará el dispositivo, y así sucesivamente hasta que todos sepan qué palabra tienen. Al final el último jugador deberá presionar el botón de 'stop' para revelar la categoría a todos los jugadores.
+    </p>
+    <br>
+    <h3 class="text-2xl text-white font-bold text-center">Objetivo del juego</h3>
+    <p>
+      Adivina el impostor. Por turnos, los jugadores uno a uno deberán dibujar con un trazo contínuo (sin levantar) algo relacionado con la palabra y la categoría tratando de no ser tan evidentes. Una vez cada jugador haya dibujado un total de dos veces se procederá a deliberar quién es el impostor basándose en los dibujos realizados por todos.
+    </p>
+    <br>
+    <h3 class="text-2xl text-white font-bold text-center">Puntuación</h3>
+    <p>
+      Aquellos jugadores que hayan votado por el impostor correctamente recibiran 1 punto, aquellos que hayan votado erróneamente no recibirán puntos y si el impostor no recibe votos ganará 2 puntos. La contabilización del puntaje se puede llevar en esta aplicación.
+    </p>
+    <br>
+    <h3 class="text-2xl text-white font-bold text-center">Créditos</h3>
+    <p class="text-center">
+      Aplicación web por <strong>@aaurzola</strong>
+      Agradecimientos a <strong>@jech33</strong>
+    </p>
+    <br>
+    <span class=" text-[#42b2be] text-center italic text-sm">Esta aplicación es una adaptación digital del juego 'A Fake Artist Goes To New York' creado originalmente por Jun Sasaki.</span>
+  </div>
+  <button
+    class="text-white font-bold py-2 px-4 rounded-full h-20 w-full text-xl secondary"
+    (click)="back()"
+    >
+    <fa-icon
+    [icon]="backIcon"
+    ></fa-icon>
+  </button>
+</div>
+
