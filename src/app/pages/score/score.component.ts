@@ -14,8 +14,8 @@ import { Observable } from 'rxjs';
 export class ScoreComponent implements OnInit{
 
   //icons
-  returnIcon = faLeftLong;
   trophyIcon = faTrophy;
+  returnIcon = faLeftLong;
 
   playerList$: Observable<Player[]> = new Observable();
 
