@@ -1,13 +1,15 @@
-<div class="flex flex-col h-[100dvh] items-center content-center justify-end p-6 relative">
-  <div class="flex flex-col justify-center absolute top-1/2 -translate-y-1/2">
+<div class="flex flex-col h-[100dvh] items-center content-center justify-end relative p-6">
+  <div class="flex flex-col justify-center absolute top-1/2 -translate-y-1/2 w-full">
     <app-players-number></app-players-number>
-    <span class="text-5xl text-center justify-center">Jugadores</span>
+    <span class="text-4xl text-center justify-center">Jugadores</span>
   </div>
-  <div routerLink="/game" class="btn-container">
+  <div
+    class="flex flex-col w-full items-center"
+    routerLink="/game">
     <button
       (click)="startGame()"
-      class="app-btn primary">
-      Start
+      class="text-white font-bold py-2 px-4 rounded-full h-20 w-full text-xl primary primary">
+      Empezar
     </button>
   </div>
 </div>

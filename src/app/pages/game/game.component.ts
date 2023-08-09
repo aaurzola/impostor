@@ -9,8 +9,7 @@ import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 @Component({
   selector: 'app-game',
-  templateUrl: './game.component.html',
-  styleUrls: ['./game.component.scss'],
+  templateUrl: './game.component.html'
 })
 export class GameComponent implements OnInit {
   playerList$: Observable<Player[]>;

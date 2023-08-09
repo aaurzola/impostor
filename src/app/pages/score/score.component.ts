@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Player } from '@app/model/player';
 import { AppState } from '@app/state/app.state';
 import { selectPlayerList } from '@app/state/players/players.selector';
+import { faLeftLong, faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -11,6 +12,10 @@ import { Observable } from 'rxjs';
   templateUrl: './score.component.html',
 })
 export class ScoreComponent implements OnInit{
+
+  //icons
+  returnIcon = faLeftLong;
+  trophyIcon = faTrophy;
 
   playerList$: Observable<Player[]> = new Observable();
 

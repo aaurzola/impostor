@@ -2,20 +2,20 @@ import { Component } from '@angular/core';
 import { Player } from '@app/model/player';
 import { AppState } from '@app/state/app.state';
 import { selectPlayerList } from '@app/state/players/players.selector';
-import { faMinusSquare, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { decrementPlayers, incrementPlayers } from 'src/app/state/players/players.actions';
 
 @Component({
   selector: 'app-players-number',
-  templateUrl: './players-number.component.html',
-  styleUrls: ['./players-number.component.scss']
+  templateUrl: './players-number.component.html'
 })
 export class PlayersNumberComponent {
 
-  faPlus = faPlusSquare;
-  faMinus = faMinusSquare;
+  //icons
+  faPlus = faPlus;
+  faMinus = faMinus;
 
   players$: Observable<Player[]>;
   playerCount = 0;

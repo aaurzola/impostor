@@ -8,8 +8,7 @@ import { endGame, loadGame } from '@app/state/game/game.actions';
 import { selectStartingPlayer } from '@app/state/game/game.selector';
 @Component({
   selector: 'app-end',
-  templateUrl: './end.component.html',
-  styleUrls: ['./end.component.scss'],
+  templateUrl: './end.component.html'
 })
 export class EndComponent implements OnInit{
   playerList$: Observable<Player[]> = new Observable();

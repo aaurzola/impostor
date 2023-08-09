@@ -1,31 +1,33 @@
-<main>
-  <div class="title">
-    <h1>{{ currentPlayer$ | async }}/{{ players }}</h1>
+<main class="flex flex-col items-center justify-between content-between p-6 pt-9 h-[100dvh]">
+  <div>
+    <h1 class="text-3xl">{{ currentPlayer$ | async }}/{{ players }}</h1>
   </div>
-  <h1 class="word-container" *ngIf="!hideWord; else elseBlock">
-    {{ currentPlayerWord$ | async }}
-  </h1>
-  <ng-template #elseBlock>
-    <h1 class="word-container">-</h1>
-  </ng-template>
-  <div class="control-container">
-    <button
-      class="app-rounded-btn secondary"
-      (pointerdown)="visibilityOn()"
-      (pointerup)="visibilityOff()"
-      (pointerleave)="visibilityOff()">
-      <fa-icon [icon]="viewIcon"></fa-icon>
-    </button>
-    <ng-container *ngIf="(isLastPlayer$ | async) === false">
-      <button class="app-rounded-btn primary" (click)="nextPlayer()">
-        <fa-icon [icon]="nextIcon"></fa-icon>
+  <div class="flex flex-col items-center content-center w-full gap-32">
+    <h1 class="text-5xl" *ngIf="!hideWord; else elseBlock">
+      {{ currentPlayerWord$ | async }}
+    </h1>
+    <ng-template #elseBlock>
+      <h1 class="text-5xl">-</h1>
+    </ng-template>
+    <div class="flex flex-row items-center justify-between w-full">
+      <button
+        class="app-rounded-btn secondary"
+        (pointerdown)="visibilityOn()"
+        (pointerup)="visibilityOff()"
+        (pointerleave)="visibilityOff()">
+        <fa-icon [icon]="viewIcon"></fa-icon>
       </button>
-    </ng-container>
-    <ng-container *ngIf="(isLastPlayer$ | async)">
-      <button routerLink="/end" class="app-rounded-btn primary">
-        <fa-icon [icon]="stopIcon"></fa-icon>
-      </button>
-    </ng-container>
+      <ng-container *ngIf="(isLastPlayer$ | async) === false">
+        <button class="app-rounded-btn primary" (click)="nextPlayer()">
+          <fa-icon [icon]="nextIcon"></fa-icon>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="(isLastPlayer$ | async)">
+        <button routerLink="/end" class="app-rounded-btn primary">
+          <fa-icon [icon]="stopIcon"></fa-icon>
+        </button>
+      </ng-container>
+    </div>
   </div>
-  <button routerLink="/score" class="app-btn tertiary">Score</button>
+  <button routerLink="/score" class="text-white font-bold py-2 px-4 rounded-full h-20 w-full text-xl tertiary">Puntuación</button>
 </main>

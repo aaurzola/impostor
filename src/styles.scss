@@ -13,20 +13,6 @@ body {
   touch-action: none;
 }
 
-.app-btn {
-  width: 340px;
-  height: 114px;
-  flex-shrink: 0;
-
-  border-radius: 63px;
-  box-shadow: 8px 7px 10px 0px rgba(0, 0, 0, 0.25);
-  font-size: 32px;
-  color: white;
-  border-style: none;
-  font-weight: bold;
-  user-select: none;
-}
-
 .primary {
   background: #DB5132;
 }
@@ -40,14 +26,13 @@ body {
 }
 
 .app-rounded-btn {
-  width: 114px;
-  height: 114px;
+  width: 90px;
+  height: 90px;
   flex-shrink: 0;
   color: white;
   border-radius: 63px;
-  box-shadow: 8px 7px 10px 0px rgba(0, 0, 0, 0.25);
   border-style: none;
-  font-size: 50px;
+  font-size: 25px;
   user-select: none;
   margin: 0;
   padding: 0;
@@ -55,4 +40,3 @@ body {
   align-items: center;
   justify-content: center;
 }
-

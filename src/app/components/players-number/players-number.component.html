@@ -1,9 +1,13 @@
-<div id="container">
+<div class="flex flex-row w-full items-center justify-around">
   <button (click)="decrementPlayers()">
-    <fa-icon [icon]="faMinus"></fa-icon>
+    <fa-icon
+      class="text-4xl"
+      [icon]="faMinus"></fa-icon>
   </button>
-  <span class="player-count">{{ playerCount}}</span>
+  <span class="text-center text-9xl">{{ playerCount}}</span>
   <button (click)="incrementPlayers()">
-    <fa-icon [icon]="faPlus"></fa-icon>
+    <fa-icon
+      class="text-4xl"
+      [icon]="faPlus"></fa-icon>
   </button>
 </div>
