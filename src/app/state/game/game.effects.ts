@@ -15,7 +15,6 @@ export class GameEffects {
         map(data =>
           startGame({
             numberOfPlayers: action.numberOfPlayers,
-            startingPlayerId: Math.ceil(Math.random() * action.numberOfPlayers),
             wordList: data
           })
         )

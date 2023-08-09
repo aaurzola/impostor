@@ -4,13 +4,11 @@ import { gameWord } from "@app/model/gameWord"
 
 export interface GameState {
   currentPlayerId: number
-  startingPlayerId: number
   currentWordSet: gameWord[]
 }
 
 const initialGameState: GameState = {
   currentPlayerId: 1,
-  startingPlayerId: 0,
   currentWordSet: []
 }
 
@@ -20,7 +18,6 @@ export const gameReducer = createReducer(
   on(startGame, (state, action) => (
     {...state,
       currentWordSet: action.wordList,
-      startingPlayerId: action.startingPlayerId,
       currentPlayerId: 1
     }
   )),
