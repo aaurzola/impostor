@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { gameWord } from '@app/model/gameWord';
 import { Player } from '@app/model/player';
 import { AppState } from '@app/state/app.state';
-import { nextPlayer } from '@app/state/game/game.actions';
+import { loadGame, nextPlayer } from '@app/state/game/game.actions';
 import { selectCurrentPlayer, selectWordList } from '@app/state/game/game.selector';
 import { selectPlayerList } from '@app/state/players/players.selector';
-import { faEye, faForward, faStop } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsRotate, faEye, faForward, faStop } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 @Component({
@@ -26,6 +26,7 @@ export class GameComponent implements OnInit {
   viewIcon = faEye;
   nextIcon = faForward;
   stopIcon = faStop;
+  swapWordIcon = faArrowsRotate;
 
   constructor(
     private store: Store<AppState>,
@@ -65,5 +66,9 @@ export class GameComponent implements OnInit {
 
   visibilityOff(): void {
     this.hideWord = true;
+  }
+
+  reloadGame(): void {
+    this.store.dispatch(loadGame({numberOfPlayers: this.players}));
   }
 }
