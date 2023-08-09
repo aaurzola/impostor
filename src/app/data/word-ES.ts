@@ -1038,7 +1038,7 @@ export const words_es: gameWord[] = [
         "category": "Ubicación"
     },
     {
-        "text": "Tienda de conveniencia (Mini supermercado)",
+        "text": "Mini supermercado",
         "category": "Ubicación"
     },
     {
@@ -3358,7 +3358,11 @@ export const words_es: gameWord[] = [
         "category": "Películas"
     },
     {
-        "text": "X Men",
+      "text": "X Men",
+      "category": "Películas"
+    },
+    {
+        "text": "La Sirenita",
         "category": "Películas"
     },
     {
@@ -3435,10 +3439,6 @@ export const words_es: gameWord[] = [
     },
     {
         "text": "La Esfinge",
-        "category": "Sitio famoso"
-    },
-    {
-        "text": "La Sirenita",
         "category": "Sitio famoso"
     },
     {
