@@ -15,6 +15,8 @@ import { ScoreComponent } from './pages/score/score.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ROOT_REDUCERS } from './state/app.state';
 import { FormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+import { GameEffects } from './state/game/game.effects';
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
@@ -33,6 +35,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     StoreModule.forRoot(ROOT_REDUCERS, { metaReducers }),
     FontAwesomeModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([GameEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

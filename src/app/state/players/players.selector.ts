@@ -17,3 +17,8 @@ export const selectEditPlayerId = createSelector(
   (state: PlayerEditState) => state.playerId
 )
 
+export const selectNumberOfPlayers = createSelector(
+  selectPlayers,
+  (state: PlayersState) => state.players.length
+)
+

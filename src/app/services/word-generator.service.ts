@@ -7,7 +7,6 @@ import { words } from '../data/word-list';
 export class WordGeneratorService {
 
   displayedWord = "";
-  wordHistory: string[] = [];
 
   getWord(): void {
     this.displayedWord = words[Math.floor(Math.random() * words.length)];
@@ -27,13 +26,5 @@ export class WordGeneratorService {
 
     this.placeImpostorInto(wordList);
     return wordList;
-  }
-
-  saveToHistory(word: string) {
-    this.wordHistory.push(word);
-  }
-
-  hasBeenUsed(word: string): boolean {
-    return this.wordHistory.includes(word);
   }
 }

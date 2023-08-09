@@ -4,7 +4,9 @@
     <span class="text-5xl text-center justify-center">Jugadores</span>
   </div>
   <div routerLink="/game" class="btn-container">
-    <button class="app-btn primary">
+    <button
+      (click)="startGame()"
+      class="app-btn primary">
       Start
     </button>
   </div>

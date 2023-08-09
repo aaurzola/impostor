@@ -1,11 +1,9 @@
 <main>
   <div class="title">
-    <h1>{{ currentPlayer}}/{{players}}</h1>
+    <h1>{{ currentPlayer$ | async }}/{{ players }}</h1>
   </div>
-  <h1
-    class="word-container"
-    *ngIf="!hideWord; else elseBlock">
-    {{ wordList[currentPlayer-1] }}
+  <h1 class="word-container" *ngIf="!hideWord; else elseBlock">
+    {{ currentPlayerWord$ | async }}
   </h1>
   <ng-template #elseBlock>
     <h1 class="word-container">-</h1>
@@ -18,18 +16,16 @@
       (pointerleave)="visibilityOff()">
       <fa-icon [icon]="viewIcon"></fa-icon>
     </button>
-    <button
-      class="app-rounded-btn primary"
-      *ngIf="currentPlayer !== players"
-      (click)="nextPlayer()">
-      <fa-icon [icon]="nextIcon"></fa-icon>
-    </button>
-    <button
-      routerLink="/end"
-      class="app-rounded-btn primary"
-      *ngIf="currentPlayer === players">
-      <fa-icon [icon]="stopIcon"></fa-icon>
-    </button>
+    <ng-container *ngIf="(isLastPlayer$ | async) === false">
+      <button class="app-rounded-btn primary" (click)="nextPlayer()">
+        <fa-icon [icon]="nextIcon"></fa-icon>
+      </button>
+    </ng-container>
+    <ng-container *ngIf="(isLastPlayer$ | async)">
+      <button routerLink="/end" class="app-rounded-btn primary">
+        <fa-icon [icon]="stopIcon"></fa-icon>
+      </button>
+    </ng-container>
   </div>
   <button routerLink="/score" class="app-btn tertiary">Score</button>
 </main>
