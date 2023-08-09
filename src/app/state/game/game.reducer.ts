@@ -1,10 +1,11 @@
 import { createReducer, on } from "@ngrx/store"
 import { loadGame, nextPlayer, startGame } from "./game.actions"
+import { gameWord } from "@app/model/gameWord"
 
 export interface GameState {
   currentPlayerId: number
   startingPlayerId: number
-  currentWordSet: string[]
+  currentWordSet: gameWord[]
 }
 
 const initialGameState: GameState = {

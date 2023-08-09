@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { gameWord } from '@app/model/gameWord';
 import { Player } from '@app/model/player';
 import { AppState } from '@app/state/app.state';
 import { nextPlayer } from '@app/state/game/game.actions';
@@ -13,13 +14,13 @@ import { Observable, map } from 'rxjs';
 })
 export class GameComponent implements OnInit {
   playerList$: Observable<Player[]>;
-  wordList$: Observable<string[]> = new Observable();
+  wordList$: Observable<gameWord[]> = new Observable();
   currentPlayer$: Observable<number>;
-  currentPlayerWord$ : Observable<string> = new Observable();
+  currentPlayerWord$ : Observable<gameWord> = new Observable();
   hideWord = true;
   players = 0;
 
-  isLastPlayer$: Observable<boolean> = new Observable(); // Add this line
+  isLastPlayer$: Observable<boolean> = new Observable();
 
   //icons
   viewIcon = faEye;
@@ -47,7 +48,6 @@ export class GameComponent implements OnInit {
           map(wordList => wordList[currentPlayer - 1])
         );
       }
-
     )
 
     this.isLastPlayer$ = this.currentPlayer$.pipe(
@@ -56,7 +56,6 @@ export class GameComponent implements OnInit {
   }
 
   nextPlayer(): void {
-    // this.currentPlayer$ = Math.min(this.players, this.currentPlayer$ + 1);
     this.store.dispatch(nextPlayer());
   }
 

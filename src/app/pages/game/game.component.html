@@ -4,7 +4,9 @@
   </div>
   <div class="flex flex-col items-center content-center w-full gap-32">
     <h1 class="text-5xl" *ngIf="!hideWord; else elseBlock">
-      {{ currentPlayerWord$ | async }}
+      <div *ngIf="(currentPlayerWord$ | async) as currentPlayerWord">
+        <p class="text-center">{{ currentPlayerWord.text }}</p>
+      </div>
     </h1>
     <ng-template #elseBlock>
       <h1 class="text-5xl">-</h1>

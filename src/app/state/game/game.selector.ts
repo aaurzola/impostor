@@ -21,3 +21,7 @@ export const selectCurrentPlayer = createSelector(
   (state: GameState) => state.currentPlayerId
 )
 
+export const selectCurrentCategory = createSelector(
+  selectGame,
+  (state: GameState) => state.currentWordSet[0].category
+)
