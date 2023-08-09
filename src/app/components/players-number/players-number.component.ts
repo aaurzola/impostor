@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Player } from '@app/model/player';
 import { AppState } from '@app/state/app.state';
 import { selectPlayerList } from '@app/state/players/players.selector';
-import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faMinus, faPeopleGroup, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { decrementPlayers, incrementPlayers } from 'src/app/state/players/players.actions';
@@ -16,6 +16,7 @@ export class PlayersNumberComponent {
   //icons
   faPlus = faPlus;
   faMinus = faMinus;
+  playersIcon = faPeopleGroup;
 
   players$: Observable<Player[]>;
   playerCount = 0;

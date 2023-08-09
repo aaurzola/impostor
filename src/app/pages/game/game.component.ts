@@ -5,7 +5,7 @@ import { AppState } from '@app/state/app.state';
 import { loadGame, nextPlayer } from '@app/state/game/game.actions';
 import { selectCurrentPlayer, selectWordList } from '@app/state/game/game.selector';
 import { selectPlayerList } from '@app/state/players/players.selector';
-import { faArrowsRotate, faEye, faForward, faStop } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsRotate, faEye, faPeopleArrows, faStop } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 @Component({
@@ -24,7 +24,7 @@ export class GameComponent implements OnInit {
 
   //icons
   viewIcon = faEye;
-  nextIcon = faForward;
+  nextIcon = faPeopleArrows;
   stopIcon = faStop;
   swapWordIcon = faArrowsRotate;
 
